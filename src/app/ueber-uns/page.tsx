@@ -71,8 +71,8 @@ const historyItems = [
     name: "Dritte Generation – Wehrli Licht GmbH",
     description:
       "Die Geschichte von Wehrli Lampenatelier geht ein Kapitel weiter und an die dritte Generation über. Mariella Kleinstein, eidg. dipl. Lichtplanerin, führt das Geschäftsmodell nun fort und bringt die Lichtplanung als neues Element mit ein. Die Gründung von Wehrli Licht GmbH verkörpert einen neuen Abschnitt in der Geschichte des Unternehmens.",
-    date: "2020",
-    dateTime: "2020",
+    date: "Seit 2020",
+    dateTime: "Seit 2020",
     imageUrl: "/images/history/2020.jpg",
   },
 ];

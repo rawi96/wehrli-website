@@ -52,7 +52,7 @@ export const Navigation = () => {
             onClick={() => setIsMobileMenuOpen(true)}
           >
             <span className="sr-only">Menu öffnen</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -107,7 +107,7 @@ export const Navigation = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <span className="sr-only">Menu schliessen</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">

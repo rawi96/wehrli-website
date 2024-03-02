@@ -1,23 +1,26 @@
 import { Button } from "@/components/button";
-import { NavWithTitle } from "@/components/nav-with-title";
 import { ContentContainer } from "@/components/content-container";
 import { Footer } from "@/components/footer";
+import { NavWithTitle } from "@/components/nav-with-title";
 import { ProjectsTeaserRow } from "@/components/projects-teaser-row";
 import { ServiceTeaser } from "@/components/service-teaser";
 import { TitleSection } from "@/components/title-section";
 import { getAllProjectsWithHeaderImages } from "@/utils/projects";
+import { Metadata } from "next";
 import Image from "next/image";
 
-const lightPlanning = {
-  title: "Licht&shy;planung",
+export const metadata: Metadata = {
+  title: "Lichtplanung",
+  description:
+    "Eine gute Lichtplanung kann einen erheblichen Einfluss auf das Ambiente und die Funktionalität eines Raumes haben. Egal ob Sie ein Wohnzimmer, ein Office oder ein Restaurant gestalten, eine sorgfältige Planung der Beleuchtung kann den Raum von einem einfachen Raum zu einem einladenden und funktionalen Ort verwandeln.",
 };
 
-export default function LightPlaningPage() {
+export default function LichtPlanungPage() {
   const projectsWithHeaderImages = getAllProjectsWithHeaderImages();
 
   return (
     <>
-      <NavWithTitle title={lightPlanning.title} />
+      <NavWithTitle title="Licht&shy;planung" />
 
       <ContentContainer>
         <div className="mb-20 grid gap-4 md:grid-cols-2">
