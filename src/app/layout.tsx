@@ -1,5 +1,6 @@
 import { ShopContextProvider } from "@/contexts/shop-context";
 import type { Metadata, Viewport } from "next";
+import PlausibleProvider from "next-plausible";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -45,7 +46,9 @@ export default function RootLayout({
     <html lang="de">
       <body className={inter.className}>
         <main className="h-full bg-gray-50 antialiased">
-          <ShopContextProvider>{children}</ShopContextProvider>
+          <PlausibleProvider domain="wehrli-licht.ch">
+            <ShopContextProvider>{children}</ShopContextProvider>
+          </PlausibleProvider>
         </main>
       </body>
     </html>
