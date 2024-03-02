@@ -11,6 +11,25 @@ export const getAllProjectsWithHeaderImages = (): ProjectWithHeaderImage[] => {
   });
 };
 
+export const transformIntoAltText = (imageName: string) =>
+  imageName.split(".")[0].replace(/[-_]/g, " ");
+
+export const getImageDirectoryByProject = (project: Project) =>
+  path.join(process.cwd(), "public", project.imagesPath);
+
+export const getImagesByProject = (project: Project) => {
+  const imagesDirectory = getImageDirectoryByProject(project);
+  return fs
+    .readdirSync(imagesDirectory)
+    .filter((imageName) =>
+      fs.statSync(path.join(imagesDirectory, imageName)).isFile(),
+    )
+    .map((imageName) => ({
+      src: path.join(project.imagesPath, imageName),
+      altText: transformIntoAltText(imageName),
+    }));
+};
+
 const getHeaderImageByProject = (project: Project) => {
   const headerImageDirectory = path.join(
     getImageDirectoryByProject(project),
@@ -22,9 +41,3 @@ const getHeaderImageByProject = (project: Project) => {
     altText: transformIntoAltText(headerImageName),
   };
 };
-
-const getImageDirectoryByProject = (project: Project) =>
-  path.join(process.cwd(), "public", project.imagesPath);
-
-const transformIntoAltText = (imageName: string) =>
-  imageName.split(".")[0].replace(/[-_]/g, " ");

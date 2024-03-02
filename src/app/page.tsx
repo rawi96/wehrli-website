@@ -7,7 +7,7 @@ import { ProjectsTeaserRow } from "@/components/projects-teaser-row";
 import { Testimonial as TestimonialComponent } from "@/components/testimonial";
 import { TitleSection } from "@/components/title-section";
 import { testimonials } from "@/data/testimonials";
-import { getAllProjectsWithHeaderImages } from "@/utils/get-all-projects";
+import { getAllProjectsWithHeaderImages } from "@/utils/projects";
 import { Metadata } from "next";
 
 const home = {
