@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-.yarn/install-state.gz
 
 # testing
 /coverage
@@ -12,6 +11,7 @@
 # next.js
 /.next/
 /out/
+/public/sitemap*.xml
 
 # production
 /build
@@ -26,11 +26,20 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+test-results/
+playwright-report/
+
+# pwa
+public/sw.js
+public/sw.js.map
+public/workbox-*.js
+public/workbox-*.js.map
+test-results/
+playwright-report/
