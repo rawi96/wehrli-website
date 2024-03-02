@@ -1,3 +1,4 @@
+import { ShopContextProvider } from "@/contexts/shop-context";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -42,8 +43,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className={inter.className + " h-full bg-gray-50 antialiased"}>
-        {children}
+      <body className={inter.className}>
+        <main className="h-full bg-gray-50 antialiased">
+          <ShopContextProvider>{children}</ShopContextProvider>
+        </main>
       </body>
     </html>
   );
