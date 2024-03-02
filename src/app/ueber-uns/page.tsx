@@ -1,8 +1,7 @@
-import { Button } from "@/components/button";
-import { CallToAction } from "@/components/call-to-action";
 import { ContentContainer } from "@/components/content-container";
 import { Footer } from "@/components/footer";
 import { History } from "@/components/history";
+import { NavWithTitle } from "@/components/nav-with-title";
 import { Team } from "@/components/team";
 import { TitleSection } from "@/components/title-section";
 import { Metadata } from "next";
@@ -11,14 +10,6 @@ const aboutUs = {
   title: "Wer wir sind",
   intro:
     "Wir sind ein kleines Team aus erfahrenen Frauen und freuen uns, Sie auch persönlich kennzulernen.",
-  primaryButton: {
-    text: "Online Shop",
-    link: "/shop",
-  },
-  secondaryButton: {
-    text: "Kontakt",
-    link: "/kontakt",
-  },
   teamSubtitle: "Unser Team",
   historySubtitle: "Unsere Geschichte",
 };
@@ -94,18 +85,7 @@ export const metadata: Metadata = {
 export default function AboutUs() {
   return (
     <>
-      <CallToAction title={aboutUs.title}>
-        <Button
-          type="secondary"
-          text={aboutUs.primaryButton.text}
-          href={aboutUs.primaryButton.link}
-        />
-        <Button
-          type="tertiary"
-          text={aboutUs.secondaryButton.text}
-          href={aboutUs.secondaryButton.link}
-        />
-      </CallToAction>
+      <NavWithTitle title={aboutUs.title} />
       <ContentContainer>
         <TitleSection title={aboutUs.teamSubtitle} />
         <Team teamMembers={teamMembers} />

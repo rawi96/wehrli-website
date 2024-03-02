@@ -1,22 +1,13 @@
 import { AllProjects } from "@/components/all-projects";
-import { Button } from "@/components/button";
-import { CallToAction } from "@/components/call-to-action";
 import { ContentContainer } from "@/components/content-container";
 import { Footer } from "@/components/footer";
+import { NavWithTitle } from "@/components/nav-with-title";
 import { getAllProjectsWithHeaderImages } from "@/utils/projects";
 import { Metadata } from "next";
 
 const projects = {
   title: "Projekte",
   intro: "Hier finden Sie eine Auswahl unserer Projekte.",
-  primaryButton: {
-    text: "Online Shop",
-    link: "/shop",
-  },
-  secondaryButton: {
-    text: "Kontakt",
-    link: "/kontakt",
-  },
 };
 
 export const metadata: Metadata = {
@@ -29,18 +20,7 @@ export default function Projects() {
 
   return (
     <>
-      <CallToAction title={projects.title}>
-        <Button
-          type="secondary"
-          text={projects.primaryButton.text}
-          href={projects.primaryButton.link}
-        />
-        <Button
-          type="tertiary"
-          text={projects.secondaryButton.text}
-          href={projects.secondaryButton.link}
-        />
-      </CallToAction>
+      <NavWithTitle title={projects.title} />
       <ContentContainer>
         <AllProjects projectsWithHeaderImages={projectsWithHeaderImages} />
       </ContentContainer>

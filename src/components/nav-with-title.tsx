@@ -1,13 +1,11 @@
-import { ReactNode } from "react";
 import { ContentContainer } from "./content-container";
 import { Navigation } from "./navigation/navigation";
 
 type Props = {
   title?: string;
-  children: ReactNode;
 };
 
-export const CallToAction = ({ title }: Props) => (
+export const NavWithTitle = ({ title }: Props) => (
   <>
     <div className="mb-20 bg-wehrli">
       <div className="px-6 lg:px-8">
