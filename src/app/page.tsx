@@ -1,6 +1,7 @@
-import { Feedback } from "@/components/feedback";
+import { Footer } from "@/components/footer";
 import { AllOffers } from "@/components/all-offers";
 import { ContentContainer } from "@/components/content-container";
+import { Feedback } from "@/components/feedback";
 import { Hero } from "@/components/hero";
 import { ProjectsTeaserRow } from "@/components/projects-teaser-row";
 import { Testimonial as TestimonialComponent } from "@/components/testimonial";
@@ -84,6 +85,7 @@ export default function Home() {
           }}
         />
       </ContentContainer>
+      <Footer />
     </>
   );
 }
