@@ -7,6 +7,7 @@ import {
   getAllProjectsWithHeaderImages,
   getImagesByProject,
 } from "@/utils/projects";
+import { Metadata } from "next";
 
 type Props = {
   params: {
@@ -20,6 +21,18 @@ export async function generateStaticParams() {
   return allProjects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: Props): Promise<Metadata> {
+  const allProjects = getAllProjectsWithHeaderImages();
+  const activeProject = allProjects.find((project) => project.slug === slug);
+
+  return {
+    title: activeProject?.title,
+    description: activeProject?.intro,
+  };
 }
 
 export default function ProjectSlugPage({ params: { slug } }: Props) {
