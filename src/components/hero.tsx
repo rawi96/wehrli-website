@@ -67,7 +67,8 @@ export const Hero = ({
               href={primaryButton.link}
             />
             <Button
-              type="tertiary"
+              type="secondary"
+              white
               text={secondaryButton.text}
               href={secondaryButton.link}
             />

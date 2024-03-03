@@ -136,7 +136,7 @@ export const ProductDetail = ({ product }: Props) => {
                 </div>
                 <Button
                   text="Besichtigungstermin vereinbaren"
-                  type="quaternary"
+                  type="secondary"
                   href="/kontakt"
                 />
               </div>
@@ -152,10 +152,10 @@ export const ProductDetail = ({ product }: Props) => {
               />
             </div>
 
-            <div className=" pb-10 pt-6 text-center">
+            <div className="pb-10 pt-6">
               <Button
                 text="Besichtigungstermin vereinbaren"
-                type="quaternary"
+                type="secondary"
                 href="/kontakt"
                 fullWidth
               />

@@ -41,8 +41,8 @@ export default async function ShopPage() {
               uns auf Ihren Besuch!
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button text="Zurück zur Website" type="secondary" />
-              <Button text="Kontakt" type="tertiary" />
+              <Button text="Zurück zur Website" type="primary" white href="/" />
+              <Button text="Kontakt" type="secondary" white href="/kontakt" />
             </div>
           </div>
         </div>
