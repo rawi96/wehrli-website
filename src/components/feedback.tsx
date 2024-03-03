@@ -1,24 +1,22 @@
 import { Button } from "./button";
 
-type Props = {
-  title: string;
-  button1: {
-    text: string;
-    link: string;
-  };
-  button2: {
-    text: string;
-    link: string;
-  };
-};
-
-export const Feedback = ({ title, button1, button2 }: Props) => (
+export const Feedback = () => (
   <>
     <div className="text-center">
-      <h2 className="text-2xl font-bold tracking-tight text-wehrli">{title}</h2>
+      <h2 className="text-2xl font-bold tracking-tight text-wehrli">
+        Wir freuen uns über euer Feedback
+      </h2>
       <div className="mb-20 mt-10 flex items-center justify-center gap-x-4">
-        <Button type="primary" text={button1.text} href={button1.link} />
-        <Button type="quaternary" text={button2.text} href={button2.link} />
+        <Button
+          type="primary"
+          text="Bewerten"
+          href="https://www.google.com/search?q=wehrli+licht&ei=PAJaZJnCJdT4sAeouZaIAQ&gs_ssp=eJzj4tZP1zcsSctJM8vKMGC0UjWoMDG3TDJMskg1sjQxNEqzMLQyqEhOMk1JMjJJMU-yNEw2t7Dw4ilPzSjKyVTIyUzOKAEAdEgTjQ&oq=wehrli+licht&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAxgAMg0ILhATEK8BEMcBEIAEMggIABCKBRCGAzIICAAQigUQhgMyGwguEBMQrwEQxwEQgAQQlwUQ3AQQ3gQQ4AQYAToKCAAQRxDWBBCwAzoICAAQigUQkQI6CwgAEIAEELEDEIMBOgsILhCABBCxAxCDAToFCAAQgAQ6CwgAEIoFELEDEIMBOgsIABCKBRCxAxCRAjoUCC4QgAQQsQMQgwEQxwEQ0QMQ1AI6EQguEIAEELEDEIMBEMcBENEDOgsILhCABBDHARDRAzoLCC4QigUQ1AIQkQI6CAguEIAEENQCOgsILhCKBRCxAxCDAToZCC4QigUQ1AIQkQIQlwUQ3AQQ3gQQ3wQYAToOCAAQigUQsQMQgwEQkQI6DQgAEIAEELEDEIMBEAo6EAgAEIAEELEDEIMBEMkDEAo6CAgAEIoFEJIDOgoIABCABBCxAxAKOgcIABCABBAKOgcILhCABBAKOg0ILhCABBDHARCvARAKOhsILhCABBDHARCvARAKEJcFENwEEN4EEOAEGAE6BwgAEA0QgAQ6BggAEB4QDToFCC4QgAQ6CwguEIAEEMcBEK8BOhkILhCABBDHARCvARCXBRDcBBDeBBDgBBgBOgYIABAWEB5KBAhBGABQ5wZY2TdgpkFoCnABeACAAdEBiAHJE5IBBjQuMTMuMpgBAKABAcgBA8ABAdoBBggBEAEYFA&sclient=gws-wiz-serp#lrd=0x479b1b8e29412f81:0xcb5db24d7b91c788,3,,,,"
+        />
+        <Button
+          type="quaternary"
+          text="Bewertungen lesen"
+          href="https://www.google.com/search?q=wehrli+licht&ei=PAJaZJnCJdT4sAeouZaIAQ&gs_ssp=eJzj4tZP1zcsSctJM8vKMGC0UjWoMDG3TDJMskg1sjQxNEqzMLQyqEhOMk1JMjJJMU-yNEw2t7Dw4ilPzSjKyVTIyUzOKAEAdEgTjQ&oq=wehrli+licht&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAxgAMg0ILhATEK8BEMcBEIAEMggIABCKBRCGAzIICAAQigUQhgMyGwguEBMQrwEQxwEQgAQQlwUQ3AQQ3gQQ4AQYAToKCAAQRxDWBBCwAzoICAAQigUQkQI6CwgAEIAEELEDEIMBOgsILhCABBCxAxCDAToFCAAQgAQ6CwgAEIoFELEDEIMBOgsIABCKBRCxAxCRAjoUCC4QgAQQsQMQgwEQxwEQ0QMQ1AI6EQguEIAEELEDEIMBEMcBENEDOgsILhCABBDHARDRAzoLCC4QigUQ1AIQkQI6CAguEIAEENQCOgsILhCKBRCxAxCDAToZCC4QigUQ1AIQkQIQlwUQ3AQQ3gQQ3wQYAToOCAAQigUQsQMQgwEQkQI6DQgAEIAEELEDEIMBEAo6EAgAEIAEELEDEIMBEMkDEAo6CAgAEIoFEJIDOgoIABCABBCxAxAKOgcIABCABBAKOgcILhCABBAKOg0ILhCABBDHARCvARAKOhsILhCABBDHARCvARAKEJcFENwEEN4EEOAEGAE6BwgAEA0QgAQ6BggAEB4QDToFCC4QgAQ6CwguEIAEEMcBEK8BOhkILhCABBDHARCvARCXBRDcBBDeBBDgBBgBOgYIABAWEB5KBAhBGABQ5wZY2TdgpkFoCnABeACAAdEBiAHJE5IBBjQuMTMuMpgBAKABAcgBA8ABAdoBBggBEAEYFA&sclient=gws-wiz-serp#lrd=0x479b1b8e29412f81:0xcb5db24d7b91c788,1,,,,"
+        />
       </div>
     </div>
   </>

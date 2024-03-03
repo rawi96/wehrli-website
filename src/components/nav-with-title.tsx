@@ -12,13 +12,13 @@ export const NavWithTitle = ({ title }: Props) => (
         <Navigation />
       </div>
     </div>
-    <ContentContainer>
-      {title && (
+    {title && (
+      <ContentContainer>
         <h1
           className="text-4xl pb-16 font-bold tracking-tight text-wehrli-500"
           dangerouslySetInnerHTML={{ __html: title }}
         ></h1>
-      )}
-    </ContentContainer>
+      </ContentContainer>
+    )}
   </>
 );

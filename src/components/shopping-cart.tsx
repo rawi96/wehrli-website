@@ -1,7 +1,7 @@
 "use client";
 
 import { useShopContext } from "@/contexts/shop-context";
-import { formatPriceToCHF } from "@/utils/format-price-to-chf";
+import { formatPriceToCHF } from "@/utils/price";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import { ChangeEvent, Fragment } from "react";
 import swell, { CartItem } from "swell-js";
 import { Button } from "./button";
+import { initSwell } from "@/utils/swell";
 
 type Props = {
   open: boolean;
@@ -26,10 +27,7 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
       return;
     }
 
-    swell.init(
-      process.env.NEXT_PUBLIC_SWELL_STORE_ID || "",
-      process.env.NEXT_PUBLIC_SWELL_API_KEY || "",
-    );
+    initSwell();
 
     const updatedCart = await swell.cart.updateItem(item.id, {
       quantity: parseInt(event.target.value),
@@ -43,10 +41,7 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
       return;
     }
 
-    swell.init(
-      process.env.NEXT_PUBLIC_SWELL_STORE_ID || "",
-      process.env.NEXT_PUBLIC_SWELL_API_KEY || "",
-    );
+    initSwell();
 
     const updatedCart = await swell.cart.removeItem(item.id);
     setCart(updatedCart);
