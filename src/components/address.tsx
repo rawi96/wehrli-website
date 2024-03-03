@@ -19,11 +19,12 @@ export const Address = ({ size = "s" }: Props) => (
         itemScope
         itemType="https://schema.org/PostalAddress"
         className="hover:opacity-80"
-      ></Link>
-      <p itemProp="name">{global.name}</p>
-      <p itemProp="streetAddress">{global.address.street}</p>
-      <span itemProp="postalCode">{global.address.zip}</span>{" "}
-      <span itemProp="addressLocality">{global.address.place}</span>
+      >
+        <p itemProp="name">{global.name}</p>
+        <p itemProp="streetAddress">{global.address.street}</p>
+        <span itemProp="postalCode">{global.address.zip}</span>{" "}
+        <span itemProp="addressLocality">{global.address.place}</span>
+      </Link>
       <p className="mt-4">
         <Link
           className="block p-4 underline hover:opacity-80"

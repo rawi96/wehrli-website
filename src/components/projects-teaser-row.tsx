@@ -15,7 +15,7 @@ export const ProjectsTeaserRow = ({ projectsWithHeaderImages }: Props) => (
             <div className="group relative h-64 w-64 overflow-hidden rounded-lg">
               <Image
                 src={project.headerImage.src}
-                alt={project.title}
+                alt={`Bild vom Lichtkonzept von: ${project.title}`}
                 className="absolute h-full w-full object-cover transition-opacity group-hover:opacity-75"
                 width={256}
                 height={256}
