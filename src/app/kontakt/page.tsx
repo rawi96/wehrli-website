@@ -27,23 +27,24 @@ export default function Contact() {
         <div className="text-center">
           {global.showHolidays && (
             <>
-              <TitleSection title="Wir machen Ferien" />
+              <TitleSection title="Ostertage" />
               <Image
                 className="mb-6 inline-block w-96"
-                src="/images/vacation/winter.jpg"
+                src="/images/vacation/ostern.jpeg"
                 width={1000}
                 height={1000}
                 alt="Ferien"
               />
               <div className="text-md mb-20">
-                <div>
-                  Vom{" "}
-                  <strong>{`${global.holidaysStart} bis ${global.holidaysEnd}`}</strong>{" "}
-                  bleibt das Geschäft geschlossen.
+                <div className="mt-4">
+                  Das Geschäft bleibt vom Karfreitag bis und mit Ostermontag
+                  geschlossen. Am Gründonnerstag, 28. März schliessen wir
+                  bereits um 17:00 Uhr.
                 </div>
-                <div className="mt-2">
-                  Nach Voranmeldung sind wir natürlich sehr gerne für Sie da!
+                <div className="mt-4">
+                  Wir sind gerne wieder ab Dienstag, 2. April für Sie da.
                 </div>
+                <div className="mt-4">Herzlichen Dank für Ihr Verständnis.</div>
               </div>
             </>
           )}

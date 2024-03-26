@@ -15,8 +15,8 @@ export const global = {
     "Mittwochnachmittag geschlossen",
     "Samstagnachmittag geschlossen",
   ],
-  christmasHoliday: "Weihnachsferien: 23.12.2023 bis und mit 02.01.2024",
-  showHolidays: false,
-  holidaysStart: "23.12.2023",
-  holidaysEnd: "02.01.2024",
+  christmasHoliday: "Ostertage: 29.03.2024 bis und mit 01.04.2024",
+  showHolidays: true,
+  holidaysStart: "29.03.2024",
+  holidaysEnd: "01.04.2024",
 };
