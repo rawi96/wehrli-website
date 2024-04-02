@@ -15,8 +15,7 @@ export const global = {
     "Mittwochnachmittag geschlossen",
     "Samstagnachmittag geschlossen",
   ],
-  christmasHoliday: "Ostertage: 29.03.2024 bis und mit 01.04.2024",
-  showHolidays: true,
+  showHolidays: false,
   holidaysStart: "29.03.2024",
   holidaysEnd: "01.04.2024",
 };
