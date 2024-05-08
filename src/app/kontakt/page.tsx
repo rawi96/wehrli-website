@@ -27,24 +27,28 @@ export default function Contact() {
         <div className="text-center">
           {global.showHolidays && (
             <>
-              <TitleSection title="Ostertage" />
+              <TitleSection title="Auffahrt" />
               <Image
-                className="mb-6 inline-block w-96"
-                src="/images/vacation/ostern.jpeg"
+                className="mb-6 inline-block w-96 rounded"
+                src="/images/vacation/fruehling.jpeg"
                 width={1000}
                 height={1000}
                 alt="Ferien"
               />
               <div className="text-md mb-20">
                 <div className="mt-4">
-                  Das Geschäft bleibt vom Karfreitag bis und mit Ostermontag
-                  geschlossen. Am Gründonnerstag, 28. März schliessen wir
-                  bereits um 17:00 Uhr.
+                  Das Ladengeschäft und das Büro bleiben über Auffahrt
+                  geschlossen. (ab Mittwoch Mittag, 08.05. bis Sonntag, 12.05.)
                 </div>
                 <div className="mt-4">
-                  Wir sind gerne wieder ab Dienstag, 2. April für Sie da.
+                  Gerne sind wir wieder ab Montag, 13.05. zu den gewohnten
+                  Öffnungszeiten für Sie da.
                 </div>
-                <div className="mt-4">Herzlichen Dank für Ihr Verständnis.</div>
+                <div className="mt-4">
+                  Wir danken für Ihr Verständnis und wünschen schöne
+                  Auffahrtstage.🌸
+                </div>
+                <div className="mt-4">Ihr Wehrli Licht Team</div>
               </div>
             </>
           )}

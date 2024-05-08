@@ -51,7 +51,7 @@ export const Footer = () => (
       <Address />
       {global.showHolidays && (
         <>
-          <h3 className="mt-10 text-center text-sm font-bold">Ostertage</h3>
+          <h3 className="mt-10 text-center text-sm font-bold">Ferien</h3>
           <div className="text-center text-sm leading-6">
             {`${global.holidaysStart} - ${global.holidaysEnd}`}
           </div>

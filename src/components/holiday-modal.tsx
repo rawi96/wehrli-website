@@ -37,9 +37,10 @@ export const HolidayModal = () => {
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                 <div>
                   <Image
+                    className="rounded"
                     height={1000}
                     width={1000}
-                    src="/images/vacation/ostern.jpeg"
+                    src="/images/vacation/fruehling.jpeg"
                     alt="Ferien"
                   />
                   <div className="mt-3 text-center sm:mt-5">
@@ -47,21 +48,25 @@ export const HolidayModal = () => {
                       as="h3"
                       className="leading- text-xl font-semibold"
                     >
-                      Ostertage
+                      Auffahrt
                     </Dialog.Title>
                     <div className="mt-4">
                       <div className="text-sm">
-                        <div className="mt-4">
-                          Das Geschäft bleibt vom Karfreitag bis und mit
-                          Ostermontag geschlossen. Am Gründonnerstag, 28. März
-                          schliessen wir bereits um 17:00 Uhr.
-                        </div>
-                        <div className="mt-4">
-                          Wir sind gerne wieder ab Dienstag, 2. April für Sie
-                          da.
-                        </div>
-                        <div className="mt-4">
-                          Herzlichen Dank für Ihr Verständnis.
+                        <div className="text-md">
+                          <div className="mt-4">
+                            Das Ladengeschäft und das Büro bleiben über Auffahrt
+                            geschlossen. (ab Mittwoch Mittag, 08.05. bis
+                            Sonntag, 12.05.)
+                          </div>
+                          <div className="mt-4">
+                            Gerne sind wir wieder ab Montag, 13.05. zu den
+                            gewohnten Öffnungszeiten für Sie da.
+                          </div>
+                          <div className="mt-4">
+                            Wir danken für Ihr Verständnis und wünschen schöne
+                            Auffahrtstage.🌸
+                          </div>
+                          <div className="mt-4">Ihr Wehrli Licht Team</div>
                         </div>
                       </div>
                     </div>
