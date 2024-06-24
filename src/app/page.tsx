@@ -4,6 +4,7 @@ import { Feedback } from "@/components/feedback";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { HolidayModal } from "@/components/holiday-modal";
+import { HomeTeaser } from "@/components/home-teaser";
 import { ProjectsTeaserRow } from "@/components/projects-teaser-row";
 import { Testimonial as TestimonialComponent } from "@/components/testimonial";
 import { TitleSection } from "@/components/title-section";
@@ -42,7 +43,7 @@ export default function Home() {
 
   return (
     <>
-      {global.showHolidays && <HolidayModal />}
+      {/* {global.showHolidays && <HolidayModal />} */}
       <Hero
         image={{
           src: "/images/essbereich.jpg",
@@ -54,6 +55,7 @@ export default function Home() {
         secondaryButton={home.secondaryButton}
       />
       <ContentContainer>
+        <HomeTeaser />
         <TitleSection title={home.offerSubTitle} />
         <AllOffers />
 

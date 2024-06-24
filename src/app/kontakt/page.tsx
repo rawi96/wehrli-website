@@ -27,28 +27,24 @@ export default function Contact() {
         <div className="text-center">
           {global.showHolidays && (
             <>
-              <TitleSection title="Auffahrt" />
+              <TitleSection title="Sommerferien: 15. Juli  bis  11. August" />
               <Image
                 className="mb-6 inline-block w-96 rounded"
-                src="/images/vacation/fruehling.jpeg"
+                src="/images/vacation/sommer.jpg"
                 width={1000}
                 height={1000}
                 alt="Ferien"
               />
               <div className="text-md mb-20">
                 <div className="mt-4">
-                  Das Ladengeschäft und das Büro bleiben über Auffahrt
-                  geschlossen. (ab Mittwoch Mittag, 08.05. bis Sonntag, 12.05.)
+                  Das Büro und die Produktion werden sporadisch besetzt sein.
                 </div>
                 <div className="mt-4">
-                  Gerne sind wir wieder ab Montag, 13.05. zu den gewohnten
-                  Öffnungszeiten für Sie da.
+                  Das Ladengeschäft ist auf Voranmeldung geöffnet.
                 </div>
                 <div className="mt-4">
-                  Wir danken für Ihr Verständnis und wünschen schöne
-                  Auffahrtstage.🌸
+                  Am besten erreichen Sie uns während dieser Zeit per E-Mail.
                 </div>
-                <div className="mt-4">Ihr Wehrli Licht Team</div>
               </div>
             </>
           )}
