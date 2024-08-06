@@ -3,13 +3,10 @@ import { ContentContainer } from "@/components/content-container";
 import { Feedback } from "@/components/feedback";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
-import { HolidayModal } from "@/components/holiday-modal";
 import { HomeTeaser } from "@/components/home-teaser";
-import { JobModal } from "@/components/job-modal";
 import { ProjectsTeaserRow } from "@/components/projects-teaser-row";
 import { Testimonial as TestimonialComponent } from "@/components/testimonial";
 import { TitleSection } from "@/components/title-section";
-import { global } from "@/data/global";
 import { testimonials } from "@/data/testimonials";
 import { getAllProjectsWithHeaderImages } from "@/utils/projects";
 import { Metadata } from "next";
@@ -44,7 +41,7 @@ export default function Home() {
 
   return (
     <>
-      {global.showHolidays && <JobModal />}
+      {/* {global.showHolidays && <JobModal />} */}
       <Hero
         image={{
           src: "/images/essbereich.jpg",
