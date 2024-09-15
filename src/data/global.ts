@@ -15,7 +15,7 @@ export const global = {
     "Mittwochnachmittag geschlossen",
     "Samstagnachmittag geschlossen",
   ],
-  showHolidays: true,
+  showHolidays: false,
   holidaysStart: "15.07.2024",
   holidaysEnd: "11.08.2024",
 };

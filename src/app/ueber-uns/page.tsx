@@ -29,12 +29,6 @@ const teamMembers = [
     bio: "Nach meiner 30-jährigen Führung des Unternehmens, freue ich mich, dieses nun an meine Tochter weiterzugeben. Gerne unterstütze ich Sie weiterhin mit meiner Erfahrung und Know-How.",
   },
   {
-    name: "Ildiko Vargáné",
-    role: "",
-    imageUrl: "/images/team/ildiko_vargane.jpg",
-    bio: "Mit meinem Sinn fürs Detail bringe ich den Showroom und die Atelier-Räume zum strahlen. Ich bin immer bereit Neues anzupacken und so Projekte umzusetzen.",
-  },
-  {
     name: "Anita Wagner",
     role: "",
     imageUrl: "/images/team/anita_wagner.jpg",
