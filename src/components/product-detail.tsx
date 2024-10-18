@@ -18,32 +18,35 @@ type Props = {
 
 export const ProductDetail = ({ product }: Props) => {
   const [activeVariant, setActiveVariant] = useState<Variant | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const { setCart, setIsShowCart } = useShopContext();
+  const { setShoppingCart: setCart, setIsShowCart } = useShopContext();
 
   const handleAddToCartClick = async () => {
+    setLoading(true);
     initSwell();
 
-    const cart = await swell.cart.addItem({
-      product_id: product.id,
-      variant_id: activeVariant?.id,
-      quantity: 1,
-    });
+    try {
+      const shoppingCart = await swell.cart.addItem({
+        product_id: product.id,
+        variant_id: activeVariant?.id,
+        quantity: 1,
+      });
 
-    setCart(cart);
-    setIsShowCart(true);
+      if ("id" in shoppingCart) {
+        setCart(shoppingCart);
+        setIsShowCart(true);
+      } else {
+        console.error(shoppingCart);
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const uniqueImages = product.images
-    ?.filter((image) => image.file?.url)
-    ?.reduce((acc: swell.Image[], current: swell.Image) => {
-      const x = acc.find((item) => item.file?.url === current.file?.url);
-      if (!x) {
-        return acc.concat([current]);
-      } else {
-        return acc;
-      }
-    }, []);
+  const uniqueImages = product.images?.filter((image) => image.file?.url);
 
   return (
     <div className="mb-20 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
@@ -83,7 +86,7 @@ export const ProductDetail = ({ product }: Props) => {
           </Tab.List>
         </div>
 
-        <Tab.Panels className="">
+        <Tab.Panels>
           {uniqueImages?.map((image) => (
             <Tab.Panel key={image.id}>
               {image.file?.url && (
@@ -112,12 +115,7 @@ export const ProductDetail = ({ product }: Props) => {
         </div>
 
         <div className="mt-6">
-          {(
-            product.variants as unknown as {
-              count: number;
-              results: Variant[];
-            }
-          ).count > 0 && (
+          {product.variants?.results && product.variants.results.length > 0 && (
             <ProductVariationSelector
               product={product}
               activeVariant={activeVariant}
@@ -132,6 +130,7 @@ export const ProductDetail = ({ product }: Props) => {
                     text="Zum Warenkorb hinzufügen"
                     type="primary"
                     onClick={handleAddToCartClick}
+                    loading={loading}
                   />
                 </div>
                 <Button
@@ -149,6 +148,7 @@ export const ProductDetail = ({ product }: Props) => {
                 type="primary"
                 onClick={handleAddToCartClick}
                 fullWidth
+                loading={loading}
               />
             </div>
 

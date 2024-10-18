@@ -2,14 +2,14 @@
 
 import { useShopContext } from "@/contexts/shop-context";
 import { formatPriceToCHF } from "@/utils/price";
+import { initSwell } from "@/utils/swell";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { ChangeEvent, Fragment } from "react";
-import swell, { CartItem } from "swell-js";
+import { ChangeEvent, Fragment, useState } from "react";
+import swell, { Cart, CartItem, ErrorResponse } from "swell-js";
 import { Button } from "./button";
-import { initSwell } from "@/utils/swell";
 
 type Props = {
   open: boolean;
@@ -17,34 +17,59 @@ type Props = {
 };
 
 export const ShoppingCart = ({ open, setOpen }: Props) => {
-  const { cart, setCart } = useShopContext();
+  const { shoppingCart, setShoppingCart } = useShopContext();
+  const [isLoading, setIsLoading] = useState<boolean>();
 
   const handleSelectChange = async (
     event: ChangeEvent<HTMLSelectElement>,
     item: CartItem,
   ) => {
     if (!item.id) {
+      console.error("Item does not have an ID.");
       return;
     }
 
+    setIsLoading(true);
+
     initSwell();
 
-    const updatedCart = await swell.cart.updateItem(item.id, {
-      quantity: parseInt(event.target.value),
-    });
+    const updatedCart: Cart | ErrorResponse = await swell.cart.updateItem(
+      item.id,
+      {
+        quantity: parseInt(event.target.value),
+      },
+    );
 
-    setCart(updatedCart);
+    if ("errors" in updatedCart) {
+      console.error("Failed to update cart item:", updatedCart.errors);
+    } else {
+      setShoppingCart(updatedCart);
+    }
+
+    setIsLoading(false);
   };
 
   const handleDeleteItem = async (item: CartItem) => {
     if (!item.id) {
+      console.error("Item does not have an ID.");
       return;
     }
 
+    setIsLoading(true);
+
     initSwell();
 
-    const updatedCart = await swell.cart.removeItem(item.id);
-    setCart(updatedCart);
+    const updatedCart: Cart | ErrorResponse = await swell.cart.removeItem(
+      item.id,
+    );
+
+    if ("errors" in updatedCart) {
+      console.error("Failed to remove item from cart:", updatedCart.errors);
+    } else {
+      setShoppingCart(updatedCart);
+    }
+
+    setIsLoading(false);
   };
 
   return (
@@ -74,7 +99,7 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
               leaveTo="opacity-0 scale-105"
             >
               <Dialog.Panel className="flex w-full max-w-3xl transform text-left text-base transition sm:my-8">
-                {cart && (
+                {shoppingCart && (
                   <div className="relative flex w-full flex-col overflow-hidden bg-white pb-8 pt-6 sm:rounded-lg sm:pb-6 lg:py-8">
                     <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8">
                       <h2 className="text-lg font-medium text-gray-900">
@@ -99,10 +124,10 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
                         role="list"
                         className="divide-y divide-gray-200 px-4 sm:px-6 lg:px-8"
                       >
-                        {cart.items?.length === 0 && (
+                        {shoppingCart.items?.length === 0 && (
                           <p>Sie haben keine Produkte im Warenkorb.</p>
                         )}
-                        {cart.items?.map((item, productIdx) => (
+                        {shoppingCart.items?.map((item, productIdx) => (
                           <li
                             key={item.id}
                             className="flex py-8 text-sm sm:items-center"
@@ -128,7 +153,12 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
                                   </Link>
                                   {item.options && (
                                     <p className="pt-3 text-gray-600">
-                                      {item.options[0].value}
+                                      {item.options
+                                        .map(
+                                          (option) =>
+                                            `${option.name}: ${option.value}`,
+                                        )
+                                        .join(", ")}
                                     </p>
                                   )}
                                 </h3>
@@ -166,8 +196,11 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
 
                                 <button
                                   type="button"
-                                  className="ml-4 font-medium text-wehrli hover:text-wehrli-600 sm:ml-0 sm:mt-2"
+                                  className={`ml-4 font-medium ${
+                                    isLoading ? "text-gray-400" : "text-wehrli"
+                                  } hover:text-wehrli-600 sm:ml-0 sm:mt-2`}
                                   onClick={() => handleDeleteItem(item)}
+                                  disabled={isLoading}
                                 >
                                   <span>Entfernen</span>
                                 </button>
@@ -177,7 +210,7 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
                         ))}
                       </ul>
                     </section>
-                    {cart.items?.length !== 0 && (
+                    {shoppingCart.items?.length !== 0 && (
                       <section
                         aria-labelledby="summary-heading"
                         className="mt-auto sm:px-6 lg:px-8"
@@ -192,13 +225,15 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
                               <div className="flex items-center justify-between py-4">
                                 <dt className="text-gray-600">Zwischentotal</dt>
                                 <dd className="font-medium text-gray-900">
-                                  {cart.sub_total}
+                                  {isLoading ? "..." : shoppingCart.sub_total}
                                 </dd>
                               </div>
                               <div className="flex items-center justify-between py-4">
                                 <dt className="text-gray-600">Versand</dt>
                                 <dd className="font-medium text-gray-900">
-                                  {cart.shipment_price}
+                                  {isLoading
+                                    ? "..."
+                                    : shoppingCart.shipment_price}
                                 </dd>
                               </div>
 
@@ -207,7 +242,7 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
                                   Total
                                 </dt>
                                 <dd className="text-base font-medium text-gray-900">
-                                  {cart.grand_total}
+                                  {isLoading ? "..." : shoppingCart.grand_total}
                                 </dd>
                               </div>
                             </dl>
@@ -216,11 +251,13 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
                       </section>
                     )}
                     <div className="mt-8 flex justify-end px-4 sm:px-6 lg:px-8">
-                      {cart?.item_quantity && cart.item_quantity > 0 ? (
+                      {shoppingCart?.item_quantity &&
+                      shoppingCart.item_quantity > 0 ? (
                         <Button
+                          loading={isLoading}
                           type="primary"
                           text="Zur Kasse"
-                          href={cart.checkout_url}
+                          href={shoppingCart.checkout_url}
                         />
                       ) : null}
                     </div>

@@ -11,15 +11,15 @@ import {
 import swell, { Cart } from "swell-js";
 
 export type ShopContextType = {
-  cart: Cart | null;
-  setCart: (cart: Cart) => void;
+  shoppingCart: Cart | null;
+  setShoppingCart: (cart: Cart) => void;
   isShowCart: boolean;
   setIsShowCart: (isShowCart: boolean) => void;
 };
 
 export const shopContextDefaultValues: ShopContextType = {
-  cart: null,
-  setCart: () => {},
+  shoppingCart: null,
+  setShoppingCart: () => {},
   isShowCart: false,
   setIsShowCart: () => {},
 };
@@ -33,8 +33,8 @@ async function getCartFromSwell() {
     process.env.NEXT_PUBLIC_SWELL_STORE_ID || "",
     process.env.NEXT_PUBLIC_SWELL_API_KEY || "",
   );
-  const cart = await swell.cart.get();
-  return cart;
+  const shoppingCart = await swell.cart.get();
+  return shoppingCart;
 }
 
 export const ShopContextProvider = ({
@@ -42,13 +42,13 @@ export const ShopContextProvider = ({
 }: {
   children: ReactNode;
 }): ReactElement => {
-  const [cart, setCart] = useState<Cart | null>(null);
+  const [shoppingCart, setShoppingCart] = useState<Cart | null>(null);
   const [isShowCart, setIsShowCart] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchCart() {
       const cart = await getCartFromSwell();
-      setCart(cart);
+      setShoppingCart(cart);
     }
     fetchCart();
   }, []);
@@ -56,8 +56,8 @@ export const ShopContextProvider = ({
   return (
     <ShopContext.Provider
       value={{
-        cart,
-        setCart,
+        shoppingCart,
+        setShoppingCart,
         isShowCart,
         setIsShowCart,
       }}
