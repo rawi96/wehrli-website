@@ -33,9 +33,12 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
 
     initSwell();
 
-    const updatedCart: Cart | ErrorResponse = await swell.cart.updateItem(item.id, {
-      quantity: parseInt(event.target.value),
-    });
+    const updatedCart: Cart | ErrorResponse = await swell.cart.updateItem(
+      item.id,
+      {
+        quantity: parseInt(event.target.value),
+      },
+    );
 
     if ("errors" in updatedCart) {
       console.error("Failed to update cart item:", updatedCart.errors);
@@ -68,10 +71,6 @@ export const ShoppingCart = ({ open, setOpen }: Props) => {
 
     setIsLoading(false);
   };
-
-  if (!shoppingCart || "errors" in shoppingCart) {
-    return <div>Error loading cart</div>;
-  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
