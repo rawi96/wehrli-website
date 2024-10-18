@@ -21,7 +21,7 @@
     "react": "^18",
     "react-dom": "^18",
     "sharp": "^0.33.2",
-    "swell-js": "^4.0.4"
+    "swell-js": "^4.2.4"
   },
   "devDependencies": {
     "@types/node": "^20",
