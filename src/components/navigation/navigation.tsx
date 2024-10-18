@@ -18,7 +18,7 @@ import { NavigationAccordion } from "./navigation-accordion";
 export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const { cart, isShowCart, setIsShowCart } = useShopContext();
+  const { shoppingCart, isShowCart, setIsShowCart } = useShopContext();
 
   const pathname = usePathname();
 
@@ -81,8 +81,8 @@ export const Navigation = () => {
               onClick={() => setIsShowCart(true)}
             >
               Warenkorb{" "}
-              {cart?.item_quantity && cart.item_quantity > 0
-                ? `(${cart.item_quantity})`
+              {shoppingCart?.item_quantity && shoppingCart.item_quantity > 0
+                ? `(${shoppingCart.item_quantity})`
                 : ""}
             </button>
           )}
@@ -136,8 +136,9 @@ export const Navigation = () => {
                     onClick={() => setIsShowCart(true)}
                   >
                     Warenkorb{" "}
-                    {cart?.item_quantity && cart.item_quantity > 0
-                      ? `(${cart.item_quantity})`
+                    {shoppingCart?.item_quantity &&
+                    shoppingCart.item_quantity > 0
+                      ? `(${shoppingCart.item_quantity})`
                       : ""}
                   </button>
                 )}

@@ -28,13 +28,10 @@ export const metadata: Metadata = {
     "Lichtinstallation",
     "Goldach",
   ],
-  authors: [
-    { name: "Mariella Wirth" },
-    {
-      name: "Raphael Wirth",
-    },
-  ],
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  authors: [{ name: "Mariella Wirth" }, { name: "Raphael Wirth" }],
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
