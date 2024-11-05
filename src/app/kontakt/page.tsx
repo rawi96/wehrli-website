@@ -25,30 +25,30 @@ export default function Contact() {
       <NavWithTitle />
       <ContentContainer>
         <div className="text-center">
-          {global.showHolidays && (
+          {/* {global.showHolidays && (
             <>
               <TitleSection title="Allerheiligen" />
-              {/* <Image
+              <Image
                 className="mb-6 inline-block w-96 rounded"
                 src="/images/vacation/sommer.jpg"
                 width={1000}
                 height={1000}
                 alt="Ferien"
-              /> */}
+              />
               <div className="text-md mb-20">
-                {/* <div className="mt-4">
+                <div className="mt-4">
                   Das Büro und die Produktion werden sporadisch besetzt sein.
                 </div>
                 <div className="mt-4">
                   Das Ladengeschäft ist auf Voranmeldung geöffnet.
-                </div> */}
+                </div>
                 <div className="mt-4">
                   Am Freitag 1.11. und Samstag 2.11. bleibt unser Geschäft
                   geschlossen. Wir danken für Ihr Verständnis
                 </div>
               </div>
             </>
-          )}
+          )} */}
           <TitleSection title="Öffnungszeiten" />
           <div className="mb-20">
             <OpeningHours size="l" />

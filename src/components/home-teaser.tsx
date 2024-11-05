@@ -26,7 +26,7 @@ export const HomeTeaser = () => (
                 Allerheiligen
               </h2>
 
-              {/* <ul
+              <ul
                 role="list"
                 className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base leading-7 text-white sm:grid-cols-2"
               >
@@ -39,12 +39,12 @@ export const HomeTeaser = () => (
                     {benefit}
                   </li>
                 ))}
-              </ul> */}
+              </ul>
               <div className="text-lg text-white mt-8">
                 Am Freitag 1.11. und Samstag 2.11. bleibt unser Geschäft
                 geschlossen. Wir danken für Ihr Verständnis.
               </div>
-              {/* <div className="mt-10 flex flex-col gap-5">
+              <div className="mt-10 flex flex-col gap-5">
                 <a
                   href="mailto:info@wehrli-licht.ch"
                   className="text-md font-semibold leading-6 text-white"
@@ -57,7 +57,7 @@ export const HomeTeaser = () => (
                 >
                   +41 71 841 23 68
                 </a>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

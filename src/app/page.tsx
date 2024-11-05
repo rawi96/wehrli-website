@@ -54,7 +54,7 @@ export default function Home() {
         secondaryButton={home.secondaryButton}
       />
       <ContentContainer>
-        <HomeTeaser />
+        {/* <HomeTeaser /> */}
         <TitleSection title={home.offerSubTitle} />
         <AllOffers />
 
