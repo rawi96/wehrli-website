@@ -10,12 +10,17 @@ export const global = {
     maps: "https://goo.gl/maps/bskYrHQAgCZQm7XFA?coh=178571&entry=tt",
   },
   openingHoursTitle: "Öffnungszeiten",
-  openingHours: ["Montag – Samstag", "09.00 – 12.00 Uhr", "14.00 – 18.00 Uhr"],
+  openingHours: [
+    "Dienstag Morgen 03.12.2025 geschlossen",
+    "Montag – Samstag",
+    "09.00 – 12.00 Uhr",
+    "14.00 – 18.00 Uhr",
+  ],
   closingHours: [
     "Mittwochnachmittag geschlossen",
     "Samstagnachmittag geschlossen",
   ],
-  // showHolidays: true,
+  showHolidays: false,
   holidaysStart: "01.11.2024",
   holidaysEnd: "02.11.2024",
 };
