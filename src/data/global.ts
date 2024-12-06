@@ -11,7 +11,6 @@ export const global = {
   },
   openingHoursTitle: "Öffnungszeiten",
   openingHours: [
-    "Dienstag Morgen 03.12.2025 geschlossen",
     "Montag – Samstag",
     "09.00 – 12.00 Uhr",
     "14.00 – 18.00 Uhr",
